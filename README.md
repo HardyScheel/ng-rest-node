@@ -1,9 +1,12 @@
 Building a REST-Backend for Angular with Node.js & Express
 ==========================================================
+Set up a Node.js server-application and create a very basic REST-API using the express framework.
+
 We build an example frontend and backend and implement a RESTful API to exchange data between them. On the software side we will use:
 - Angular 10
 - Node.js 14.8.0 LTS
 - Express Framework 6.14.7
+- BodyParser 6.14.6
 - CORS 2.8.5
 
 The data we use are hardcoded in the Express server backend because we do not have a database in this tutorial yet.
@@ -215,7 +218,7 @@ npm install cors --save
 server.js
 ```javascript
 const cors = require('cors');
-...
+
 var corsOptions = {
   origin: 'http://example.com',
   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204 
@@ -223,3 +226,65 @@ var corsOptions = {
 
 app.use(cors(corsOptions))
 ```
+
+Building the Angular application
+--------------------------------
+
+We use the Angular HttpClient to use the REST-API
+
+ Import the HttpClientModule in AppModule.
+
+```typescript
+```
+
+ Create an Angular CatService, that consumes the REST-API.
+
+ cat.service.ts
+ ```typescript
+import { Injectable } from '@angular/core'
+import { Observable } from 'rxjs/Observable'
+import { HttpClient } from '@angular/common/http'
+
+export interface Cat {
+  name: string
+}
+
+@Injectable()
+export class CatService {
+  constructor(private http: HttpClient) {}
+
+  getAllCats(): Observable<Cat[]> {
+    return this.http.get<Cat[]>('http://localhost:8000/api/cats')
+  }
+
+  getCat(name: string): Observable<Cat> {
+    return this.http.get<Cat>('http://localhost:8000/api/cats/' + name)
+  }
+
+  insertCat(cat: Cat): Observable<Cat> {
+    return this.http.post<Cat>('http://localhost:8000/api/cats/', cat)
+  }
+
+  updateCat(cat: Cat): Observable<void> {
+    return this.http.put<void>(
+      'http://localhost:8000/api/cats/' + cat.name,
+      cat
+    )
+  }
+
+  deleteCat(name: string) {
+    return this.http.delete('http://localhost:8000/api/cats/' + name)
+  }
+}
+ ```
+
+
+Documentation: Angular client
+=============================
+
+Initialize a new Angualar app with RoutingModule:
+
+```shell
+ng new ng-rest-node-client --routing
+```
+
