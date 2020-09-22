@@ -1,0 +1,15 @@
+{
+  "name": "ng-rest-node-server",
+  "version": "0.0.1",
+  "description": "A nodejs Express server for RESTful API",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "hardy.scheel@gmail.com",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
