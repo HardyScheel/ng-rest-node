@@ -1,7 +1,9 @@
 // Import Express Framework.
 const express = require('express');
 // Import body-parser
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
+// Import CORS
+const cors = require('cors');
 
 // Initialize the express framework. It will return an Express-Object 'app'.
 const app = express();
@@ -12,6 +14,14 @@ app.listen(8000, () => {
     console.log('Server started!');
 })
 
+// Use CORS.
+var corsOptions = {
+    origin: 'http://example.com',
+    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204 
+}
+
+app.use(cors(corsOptions))
+
 
 // === Define routes ===
 // =====================
@@ -20,7 +30,7 @@ app.listen(8000, () => {
 app.route('/api/cats').get((req, res) => {
     res.send({
         cats: [{ name: 'lilly' }, { name: 'lucy' }],
-    })
+    });
 })
 
 // Get a single cat. / GET
@@ -35,8 +45,12 @@ app.route('/api/cats').post((req, res) => {
     res.send(201, req.body)
 })
 
-// Change many cats. / PUT
+// Change a cat. / PUT
 app.route('/api/cats/:name').put((req, res) => {
     res.send(200, req.body)
 })
 
+// Delete a cat. / DELETE
+app.route('/api/cats/:name').delete((req, res) => {
+    res.sendStatus(204)
+})

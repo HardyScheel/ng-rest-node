@@ -4,6 +4,7 @@ We build an example frontend and backend and implement a RESTful API to exchange
 - Angular 10
 - Node.js 14.8.0 LTS
 - Express Framework 6.14.7
+- CORS 2.8.5
 
 The data we use are hardcoded in the Express server backend because we do not have a database in this tutorial yet.
 
@@ -66,7 +67,7 @@ If you are using Visual Studio Code, you can also start your server by hitting `
 Build the REST API
 ------------------
 
-### Modeling the CRUD operations
+### Modelling the CRUD operations
 
 Create: To create a new object under an endpoint, a post-request is sent to the REST-Endpoint containing the new object to create in the post-body.
 
@@ -198,4 +199,27 @@ app.route('/api/cats/:name').delete((req, res) => {
 })
 ```
 
-The status-code "204" -No Content, means that we are not sending back any payload, but the request was successful.
+The status-code "204" -No Content, means that we are not sending back any payload, but the 
+request was successful.
+
+
+Enabling CORS
+-------------
+
+Enable CORS with Express by using the CORS middleware.
+
+```shell
+npm install cors --save
+```
+
+server.js
+```javascript
+const cors = require('cors');
+...
+var corsOptions = {
+  origin: 'http://example.com',
+  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204 
+}
+
+app.use(cors(corsOptions))
+```
