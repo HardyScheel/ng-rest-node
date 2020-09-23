@@ -234,7 +234,14 @@ We use the Angular HttpClient to use the REST-API
 
  Import the HttpClientModule in AppModule.
 
+app.module.ts
 ```typescript
+import { HttpClientModule } from '@angular/common/http'
+...
+  imports: [
+    ...,
+    HttpClientModule,
+  ]
 ```
 
  Create an Angular CatService, that consumes the REST-API.
@@ -292,6 +299,7 @@ ng new ng-rest-node-client --routing
 - https://malcoded.com/posts/angular-beginners-guide/
 - https://malcoded.com/posts/angular-2-components-and-mvvm/
 - https://malcoded.com/posts - Read all Angular blog post from malcoded.com.
+- https://www.tektutorialshub.com/angular/angular-http-get-example-using-httpclient/
 
 ## Add Angular Material
 
