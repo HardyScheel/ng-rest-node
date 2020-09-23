@@ -28,9 +28,11 @@ app.use(cors(corsOptions))
 
 // Get all cats. / GET
 app.route('/api/cats').get((req, res) => {
-    res.send({
-        cats: [{ name: 'lilly' }, { name: 'lucy' }],
-    });
+    res.send(
+        // { cats: [{ name: 'lilly' }, { name: 'lucy' }] }
+        // [{ name: 'lilly' }, { name: 'lucy' }]
+        [{ "name": "lilly" }, { "name": "lucy" }]
+    );
 })
 
 // Get a single cat. / GET

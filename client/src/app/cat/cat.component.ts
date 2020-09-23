@@ -9,7 +9,7 @@ import { Cat, CatService } from '../services/cat.service';
 })
 export class CatComponent implements OnInit {
 
-  cats: Cat[];
+  cats:any;
 
   loading: boolean = false;
   errorMessage;
@@ -23,10 +23,11 @@ export class CatComponent implements OnInit {
   getAllCats() {
     this.catService.getAllCats()
       .subscribe(
-        (response: Cat) => {
+        (response) => {
           console.log('response received');
           // We will get an object with an array of objects from the server.
-          this.cats = response.cats;
+          this.cats = response;
+          // this.cats = response.cat;
           // this.cats = Object.keys(response);
           // this.cats = Array.of(response) // convert JSON to Array
         },
