@@ -1,33 +1,20 @@
-<p>cat works!</p>
-<p>{{catName}}</p>
+<h1>Cat - HTTP Demo</h1>
 
-<mat-slider min="1" max="100" step="1" value="1"></mat-slider>
-<mat-icon>favorite</mat-icon>
-
-<div id="material-example">
-
-  <h1>ToolBar</h1>
-
-  <mat-toolbar color="primary">
-
-    <span>Material Design Rocks!</span>
-
-  </mat-toolbar>
-
-  <br />
-
-  <h1>Buttons</h1>
-
-  <mat-card>
-
-    <button mat-button>Basic</button>
-    <button mat-raised-button>Raised</button>
-    <button mat-icon-button>
-      <mat-icon>favorite</mat-icon>
-    </button>
-    <button mat-fab>Fab</button>
-    <button mat-mini-fab>mFab</button>
-
-  </mat-card>
-
+<div class="form-group">
+  <button mat-raised-button (click)="getAllCats()">Get all cats</button>
 </div>
+
+<div *ngIf="loading">loading...</div>
+
+<table>
+  <tr *ngFor="let cat of cats">
+    <td>{{cat.name}}</td>
+  </tr>
+</table>
+
+
+<div *ngIf="errorMessage" class="alert alert-warning">
+  <strong>Warning!</strong> {{errorMessage | json}}
+</div>
+
+<pre>{{cats | json}}</pre>

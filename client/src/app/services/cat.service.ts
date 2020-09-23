@@ -3,7 +3,8 @@ import { Observable } from 'rxjs/Observable'
 import { HttpClient } from '@angular/common/http'
 
 export interface Cat {
-  name: string
+  // name: string;
+  cats: [];
 }
 
 @Injectable({
@@ -27,8 +28,7 @@ export class CatService {
 
   updateCat(cat: Cat): Observable<void> {
     return this.http.put<void>(
-      'http://localhost:8000/api/cats/' + cat.name,
-      cat
+      'http://localhost:8000/api/cats/' + cat.cats, cat
     )
   }
 

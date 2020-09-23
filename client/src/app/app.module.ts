@@ -4,8 +4,10 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { MaterialModule } from './modules/material.module';
 import { HttpClientModule } from '@angular/common/http'
+import { FormsModule } from '@angular/forms';
 
 import { CatComponent } from './cat/cat.component';
 import { CatService } from './services/cat.service';
@@ -21,6 +23,7 @@ import { CatService } from './services/cat.service';
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
+    FormsModule,
   ],
   providers: [CatService],
   bootstrap: [AppComponent]

@@ -296,6 +296,7 @@ ng new ng-rest-node-client --routing
 
 ### Further information
 - https://malcoded.com/posts/angular-backend-express/ - The main tutorial.
+- [solving the problem: you get an object with an array of objects from the server](https://medium.com/@lucian.cbn/catcomponent-html-3-5cb2e33a07d)
 - https://malcoded.com/posts/angular-beginners-guide/
 - https://malcoded.com/posts/angular-2-components-and-mvvm/
 - https://malcoded.com/posts - Read all Angular blog post from malcoded.com.
