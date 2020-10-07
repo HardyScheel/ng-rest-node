@@ -1,6 +1,7 @@
 Building a REST-Backend for Angular with Node.js & Express
 ==========================================================
-Set up a Node.js server-application and create a very basic REST-API using the express framework.
+
+Set up a Node.js server-application and create a very basic REST-API using the express framework. This is an implementation of a tutorial from [malcoded.com/](https://malcoded.com/posts/angular-backend-express/).
 
 We build an example frontend and backend and implement a RESTful API to exchange data between them. On the software side we will use:
 - Angular 10
@@ -441,3 +442,4 @@ Angular Material:
 - [https://material.angular.io/guide/theming#using-a-pre-built-theme](https://material.angular.io/guide/theming#using-a-pre-built-theme)
 - [https://auth0.com/blog/creating-beautiful-apps-with-angular-material/](https://auth0.com/blog/creating-beautiful-apps-with-angular-material/) continue here
 - [https://robferguson.org/blog/2018/11/05/getting-started-with-angular-material/](https://robferguson.org/blog/2018/11/05/getting-started-with-angular-material/) generate Angular CLI Material starter component
+
